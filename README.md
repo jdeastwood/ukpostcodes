@@ -6,3 +6,9 @@ Specifically it covers:
 * How to use QGIS to create postcode area maps from the Ordinance Survey data.
 * How to export the postcode area maps from QGIS for use with Google Fusion Tables.
 * How to prepare data for use in Fusion Tables, and how to create a choropleth map.
+
+
+## Get the Ordinance Survey Data
+Go to the [OS OpenData Download page](https://www.ordnancesurvey.co.uk/opendatadownload/products.html) and select the Boundary-Line™ and Code-Point® Open products for download. You will need to fill out a form stating you agree to the terms of use and provide an email to which download links will be sent. 
+
+When the email arrives download the two files, clone this repo, and extract bdline_gb.zip and codepo_gb.zip into the Boundary_line and Codepoint directories respectively.
