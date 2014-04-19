@@ -19,3 +19,14 @@ The Codepoint data isn't entirely consistent in it's formatting and also contain
 ./combine.py ./Codepoint/Data/CSV/eh.csv > eh_clean.csv
 ``` 
 
+## Generate district maps
+
+First [download QGIS](http://www.qgis.org/en/site/) and install it. Open QGIS and creat a new project, save the project as postcode_districts.
+
+You fisrt need to add a map to work on; in QGIS select Layer > Add Vector Layer and enter Boundary_line/Data/european_region_region.shp as the source dataset. This will add a UK map layer.
+
+Now add the postcode data. Select Layer > Add Delimited Text Layer and set eh_clean.csv as the filename. N.B that you may need to change the X Field And Y field in the geometry definition section to X = northing and Y = easting. Otherwise you can just press OK. This will bring up a window asking you to set a Coordinate Reference System, you want **OSGB 1936 / British National Grid**. Click OK and points corresponding to the postcodes will be added to the map.
+
+Next select Vector > Geometry Tools > Voroni Polygons. Set the output file to unmerged.shp and check the "add result to canvas option". Click OK and when the coordinate system selector appears, select British National Grid.
+
+This will add a later to the map with a polygon for each postcode, these now need to be merged together by district. Select Vector > Geoprocessing Tools > Dissolve. Select unmerged as the input layer, set the output file to districts.shp, and check the "add result to canvas option".
